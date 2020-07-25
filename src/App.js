@@ -23,6 +23,7 @@ function App() {
     await api.delete(`/repositories/${id}`, {
       data:{id}
     })
+    setList(list.filter(repository => repository.id !== id))
   } 
 
   useEffect(() => {
@@ -40,7 +41,7 @@ function App() {
     return () => {
       mounted = false;
     }
-  },[list])
+  },[])
 
   return (
     <div>
